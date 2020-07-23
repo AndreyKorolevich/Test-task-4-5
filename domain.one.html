@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Task 4-5</title>
+	<meta charset="utf-8">
+	<script src="Dispatcher.js"></script>
+	<script src="Form.js"></script>
+</head>
+
+<body>
+	<p>domain.one</p>
+	<form id="set">
+		<input type="text" placeholder="Text key" name="key">
+		<input type="text" placeholder="Text value" name="value">
+		<input type="submit" value="Set value">
+	</form>
+	<form id="get">
+		<input type="text" placeholder="Text key" name="key">
+		<input type="submit" value="Get value">
+	</form>
+	<form id="delete">
+		<input type="text" placeholder="Text key" name="key">
+		<input type="submit" value="Delete value">
+	</form>
+	<iframe name='iframe' id='iframe' src="domain.two.html"></iframe>
+	<script>
+		const iframe = document.getElementById("iframe").contentWindow;
+		const dispatcher = new Dispatcher(iframe);
+
+		const setForm = new Form(document.getElementById('set'), 'set');
+		const getForm = new Form(document.getElementById('get'), 'get');
+		const deleteForm = new Form(document.getElementById('delete'), 'delete');
+	</script>
+</body>
+
+</html>
